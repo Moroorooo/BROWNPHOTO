@@ -1,11 +1,12 @@
 package com.example.photobrowser
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -16,32 +17,40 @@ import com.example.photobrowser.ui.theme.PhotoBrowserTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             PhotoBrowserTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                Scaffold(
+                    modifier = Modifier.fillMaxSize()
+                ) { innerPadding ->
+                    BrowsePhotosScreen(
+                        onBrowseClick = { navigateToPhotoList() },
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
             }
         }
     }
+
+    private fun navigateToPhotoList() {
+        val intent = Intent(this, PhotoListActivity::class.java)
+        startActivity(intent)
+    }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
+fun BrowsePhotosScreen(onBrowseClick: () -> Unit, modifier: Modifier = Modifier) {
+    Button(
+        onClick = onBrowseClick,
         modifier = modifier
-    )
+    ) {
+        Text(text = "Browse Photos")
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun BrowsePhotosScreenPreview() {
     PhotoBrowserTheme {
-        Greeting("Android")
+        BrowsePhotosScreen(onBrowseClick = {})
     }
 }
