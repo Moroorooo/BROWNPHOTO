@@ -7,7 +7,7 @@ Photo Browser là một ứng dụng Android cho phép người dùng duyệt v�
 ## Tính Năng
 
 - **Màn hình chính**: Có nút "Browse Photos" để điều hướng đến màn hình danh sách ảnh.
-- **Màn hình danh sách ảnh**: Sử dụng RecyclerView để hiển thị danh sách ảnh từ nguồn dữ liệu (có thể là từ local hoặc Internet).
+- **Màn hình danh sách ảnh**: Sử dụng RecyclerView để hiển thị danh sách ảnh từ nguồn dữ liệu (có thể là từ local ).
 - **Màn hình chi tiết ảnh**: Khi người dùng nhấp vào một bức ảnh, ứng dụng sẽ điều hướng đến màn hình chi tiết hiển thị bức ảnh lớn hơn (toàn màn hình).
 - **Quản lý vòng đời Activity**: Ứng dụng quản lý trạng thái của danh sách ảnh và vị trí đã chọn khi người dùng điều hướng giữa các màn hình.
 
